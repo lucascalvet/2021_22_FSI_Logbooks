@@ -1,9 +1,8 @@
-
 Breve descrição do grupo
 
-* Turno: [LM]XX
-* Grupo: YY
+* Turno: [L]09
+* Grupo: 04
 * Alunos:
-    - Aluno1 upZZZZZ 
-    - Aluno2 upZZZZZ
-    - Aluno3 upZZZZZ
+    - José Pedro Peixoto Ferreira up201904515
+    - Lucas Calvet Santos up201904517
+    - Sérgio Rodrigues da Gama up201906690
