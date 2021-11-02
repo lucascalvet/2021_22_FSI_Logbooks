@@ -1,6 +1,6 @@
 Breve descrição do grupo
 
-* Turno: [L]09
+* Turno: L09
 * Grupo: 04
 * Alunos:
     - José Pedro Peixoto Ferreira up201904515
