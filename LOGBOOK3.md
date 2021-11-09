@@ -11,9 +11,9 @@ CVE-2017-11882
 
 ## Catalogation
 
-- item1
-- item2
-- item3
+- The exploit was dicovered in November of 2017.
+- It was discovered by a group of researchers at Embedi.
+- The vulnerability has been lurking for 17 years
 - item4
 
 ## Exploit
@@ -26,6 +26,6 @@ CVE-2017-11882
 ## Attacks
 
 - There are countries, like China, North Korean, and Russia that are continuously taking advantage of this Office bug since at least 2016. 
-- item2
+- As a matter of fact, an FBI report published on May 12 2020, listed it as one of the top 10 vulnerabilities routinely getting exploited.
 - item3
 - item4
