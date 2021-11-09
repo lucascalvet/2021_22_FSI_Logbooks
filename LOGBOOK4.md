@@ -27,4 +27,8 @@
 
 - When using the system function call with the argument "/usr/bin/env", we obtain the the environment varibales, proving the previous task 4 description. 
 
-### Task 5: 
+### Task 5: Environment Variable and Set-UID Programs
+
+- When we created an environment variable,
+
+### Task 6: The PATH Environment Variable and Set-UID Programs
