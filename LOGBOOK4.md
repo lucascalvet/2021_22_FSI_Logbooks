@@ -11,6 +11,4 @@
 
 ### Task 2: Passing Environment Variables from Parent Process to Child Process
 
-- step 1: after compiling this version of myprintenv.c with the printenv function call on the case 0 of the switch statement, we conclude that the environment variables are all inherited by the child process
-
-- step 2: 
+After compiling two versions of myprintenv.c, one with the printenv function call on the case 0 (child) and other on the default case of the switch statement, we wrote the output of both into two diferent log files. Finally, we conclude that the environment variables are inherited by the child process, by comparing both log files with the diff bash command and observing no differences. 
