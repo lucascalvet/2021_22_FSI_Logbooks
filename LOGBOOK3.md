@@ -14,7 +14,7 @@ CVE-2017-11882
 - The exploit was dicovered in November of 2017.
 - It was discovered by a group of researchers at Embedi.
 - The vulnerability has been lurking for 17 years
-- item4
+- Microsoft released a patch immediately after the first reports, in November of 2017. Therefore all updated versions of the Office can't be exploited.
 
 ## Exploit
 
