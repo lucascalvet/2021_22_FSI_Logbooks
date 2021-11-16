@@ -1,5 +1,22 @@
 # CTF
 
+## Recon
+
+- We identified the Wordpress version (5.8.2) in the following html element: `<meta name="generator" content="WordPress 5.8.2" />`
+- In the following meta tag, we identified that the WooCommerce plugin (5.7.1) was being used (`<meta name="generator" content="WooCommerce 5.7.1" />`). This plugin is loaded from `/wp-content/plugins/woocommerce`.
+- We identified two registered users - admin and orval_sanford (aka Orval Sanford) - by looking at the Recent Comments on the sidebar. Orval Sanford's username was identified by looking at the link when clicking in his name (`/author/orval_sanford/`), which then redirects to `/shop/`. These were verified to be users by inputting them in the login box with a random password and looking at the error message.
+
+## Vulnerability
+
+We were hinted that the exploitable vulnerability lied in the WooCommerce plugin, since the used WordPress version was the most recent one at the time. As such, we searched in exploit-db for WooCommerce exploits and discovered an exploit based on CVE-2021-34646. We confirmed this was the exploitable CVE in this case, by testing the flag `flag{CVE-2021-34646}` in the Week 4 - Challenge 1, which was accepted.
+
+We researched the identified vulnerability, to understand that the problem was caused due to the generation of a verification link, which would be sent by email, that allows to directly authenticate as any user. The generation of this link would be triggered by sending a request to the home URL with the `wcj_user_id` parameter set to the corresponding user ID. Usually, the user ID of 1 corresponds to an administration account. By accessing `/wp-json/wp/v2/users/` we were able to verify that in fact the admin account has an user ID of 1. The generated link had a format like `/my-account/?wcj_verify_email=json_info` where `json_info` is a Base64 encoded JSON string containing the user ID and the generated hash for verification. However, this hash was simply an md5 encoding of the current time, which is easily guessed.
+
+To exploit this vulnerability, we used the already made [exploit](https://www.exploit-db.com/exploits/50299) in the Exploit Database. This exploit generates three different verification links, based in three different timestamps, to maximize the possibility of a correct one. After trying different links we eventually succeded in authenticating as the admin account.
+
+The flag - `flag{9ee3ba67c983ad1fdabd0a4635609f0a}` - was found in the first Post in `/wp-admin/edit.php`.
+
+
 # SEED Labs
 
 ## Environment Variable and Set-UID Program Lab
