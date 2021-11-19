@@ -46,6 +46,8 @@ The flag - `flag{9ee3ba67c983ad1fdabd0a4635609f0a}` - was found in the first Pos
 
 ### Task 5: Environment Variable and Set-UID Programs
 
-- When we created an environment variable,
+- We created three environment variables in the parent process (shell) and when we ran the setUID program almost all were inherited by the child process (program), except from `LD LIBRARY PATH`. After doing a research, we conclude that this environment variable is not inherited by setUID processes, because of security reasons, since it is the path which the linker should look in to, while linking dynamic libraries, or shared libraries.
 
 ### Task 6: The PATH Environment Variable and Set-UID Programs
+
+- After setting our malicious code that created a new environment variable, as a setUID program and then checked the environment variables, we saw that the one we had created did not exist. After a dedicated search we conclude the environment in POSIX is inherited by child processes (created by fork call). However, when there are changes to the environment in the child process, those changes are not maintained in the parent process, when the child process terminates.
