@@ -2,12 +2,12 @@
 
 ## Challenge 1
 
-###Recon
+### Recon
 
 - We identified the security properties of the given program, with the help of the `checksec` tool.
 - There was no canary protecting the return address and the stack has execution permission.
 
-###Vulnerability
+### Vulnerability
 
 The program read a file (mem.txt), and in other to get the flag we needed to change which file the program read. The path to the file was kept in the variable meme_file. The only moment in the execution of the program in which the user intervenes is when he gets to give a text input, that will be kept in a 20 byte buffer.
 
@@ -15,12 +15,12 @@ We understood the vulnerability would be connected to said buffer, and could be 
 
 ## Challenge 2
 
-###Recon
+### Recon
 
 - Just like before, we identified the security properties of the given program, with the help of the `checksec` tool.
 - There was no canary protecting the return address and the stack has execution permission, once again.
 
-###Vulnerability
+### Vulnerability
 
 The difference this time in the program, was a new variable "val", an array of 4 characters. The program would only open the text file if the condition `if(*(long*)val == 0xfefc2122)` was met.
 
