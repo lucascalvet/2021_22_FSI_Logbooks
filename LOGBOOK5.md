@@ -32,6 +32,12 @@ We identified the same opportunity to induce a buffer overflow, except this time
 
 ### Task 1: Getting Familiar with Shellcode
 
+- We were able to understand the shellcode and run the generated 32 bit binary that executed the shellcode.
+- A shell was launched when executing the binary, as expected.
+
 ### Task 2: Understanding the Vulnerable Program
+
+- We understood how the program had a buffer overflow vulnerability, since it was copying a 517 bytes buffer to a 100 bytes one. This opens the possibility to get a root shell 
+- By using the `make` command, we compiled the vulnerable program with flags for turning off StackGuard and the non-executable stack protections and set it as a root owned Set-UID program.
 
 ### Task 3: Launching Attack on 32-bit Program (Level 1)
