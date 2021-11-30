@@ -23,9 +23,9 @@ We knew that we could print the value of any variable provided we knew it's addr
 
 ### Vulnerability
 
-The difference this time in the program, was a new variable "val", an array of 4 characters. The program would only open the text file if the condition `if(*(long*)val == 0xfefc2122)` was met.
+This time the only way we could access the `flag.txt` file was via a bash. The problem was that to launch said bash we needed to satisfy the condition `if(key == 0xbeef)`, and at first glance there wasn't any way to change the value of the `key` variable. But upon further analysis, we identified, once again, the format string vulnerability in the `scanf("%32s", &buffer);`/ `printf(buffer);` combo. The only type of format string attack that can change the value of a variable is the one that uses the formatting option `%n`. This option doesn't print anything, but the number of characters written is stored in the pointed location. This opens up a possibility to change the `key`.
 
-We identified the same opportunity to induce a buffer overflow, except this time the variables were in the following order in the stack: buffer->val->mem_file. So we used the Python script to send the input "[20 characters to fill the buffer][0x22][0x21][0xfc][0xfe]flag.txt". This way the condition was met and we changed the variable mem_file to "flag.txt", just like in the first challenge. Doing this we found the flag - `flag{031964c904407b7f31a925abe31d5d1f}`.
+In order to obtain the flag, we needed to change `key` to `0xbeef`. As we are using the `%n` option in our attack, we need to send an input that starts by the address of the `key` variable (after using gdb we found it to be `0x804c034`) and write `0xbeef` characters, or in decimal, 48879 characters. We used the python script to send an input with padding to wirte all the necessary characters, with a structure like this "aaaa\x34\xc0\x04\x08%48871x%n" (the starting characters are just there as the argument to be consumed by the padding). Running said script opened the bash, which in it's turn (using `cat < flag.txt`) allowed us to reach the flag - `flag{13107049574ad6c1dffec227ae128e62}`.
 
 
 # SEED Labs
