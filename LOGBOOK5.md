@@ -9,7 +9,7 @@
 
 ### Vulnerability
 
-The program read a file (mem.txt), and in other to get the flag we needed to change which file the program read. The path to the file was kept in the variable meme_file. The only moment in the execution of the program in which the user intervenes is when he gets to give a text input, that will be kept in a 20 byte buffer.
+The program read a file (mem.txt), and in order to get the flag we needed to change which file the program read. The path to the file was kept in the variable meme_file. The only moment in the execution of the program in which the user intervenes is when he gets to give a text input, that will be kept in a 20 byte buffer.
 
 We understood the vulnerability would be connected to said buffer, and could be exploited by creating a buffer overflow. If we wrote more than 20 characters a buffer overflow would occur. We knew we could wirte on the stack and change other variables and we knew meme_file was next to the buffer on the stack. So in order to access flag.txt we sent as the input something like "[20 characters to fill the buffer]flag.txt". This changed the variable mem_file to "flag.txt" and we found the flag - `flag{8df95b4dbd7681ec6e6688826ae6fd12}`.
 
