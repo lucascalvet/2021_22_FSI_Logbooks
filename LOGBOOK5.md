@@ -9,9 +9,9 @@
 
 ### Vulnerability
 
-The program read a file (mem.txt), and in order to get the flag we needed to change which file the program read. The path to the file was kept in the variable meme_file. The only moment in the execution of the program in which the user intervenes is when he gets to give a text input, that will be kept in a 20 byte buffer.
+The program read a file (`mem.txt`), and in order to get the flag we needed to change which file the program read. The path to the file was kept in the variable `meme_file`. The only moment in the execution of the program in which the user intervenes is when he gets to give a text input, that will be kept in a 20 byte buffer.
 
-We understood the vulnerability would be connected to said buffer, and could be exploited by creating a buffer overflow. If we wrote more than 20 characters a buffer overflow would occur. We knew we could write on the stack and change other variables and we knew meme_file was next to the buffer on the stack. So in order to access flag.txt we sent as the input something like "[20 characters to fill the buffer]flag.txt". This changed the variable mem_file to "flag.txt" and we found the flag - `flag{8df95b4dbd7681ec6e6688826ae6fd12}`.
+We understood the vulnerability would be connected to said buffer, and could be exploited by creating a buffer overflow. If we wrote more than 20 characters a buffer overflow would occur. We knew we could wirte on the stack and change other variables and we knew `meme_file` was next to the `buffer` on the stack. So in order to access `flag.txt` we sent as the input something like "[20 characters to fill the buffer]flag.txt". This changed the variable `meme_file` to "flag.txt" and we found the flag - `flag{8df95b4dbd7681ec6e6688826ae6fd12}`.
 
 ## Challenge 2
 
@@ -22,9 +22,9 @@ We understood the vulnerability would be connected to said buffer, and could be 
 
 ### Vulnerability
 
-The difference this time in the program, was a new variable "val", an array of 4 characters. The program would only open the text file if the condition `*(long*)val == 0xfefc2122` was met.
+The difference this time in the program, was a new variable, `val`, an array of 4 characters. The program would only open the text file if the condition `*(long*)val == 0xfefc2122` was met.
 
-We identified the same opportunity to create a buffer overflow, except this time the variables were in the following order in the stack: buffer->val->mem_file. So we used the Python script to send the input "[20 characters to fill the buffer][0x22][0x21][0xfc][0xfe]flag.txt". This way the condition was met and we changed the variable mem_file to "flag.txt", just like in the first challenge. Doing this we found the flag - `flag{031964c904407b7f31a925abe31d5d1f}`.
+We identified the same opportunity to create a buffer overflow, except this time the variables were in the following order in the stack: `buffer`->`val`->`meme_file`. So we used the Python script to send the input "[20 characters to fill the buffer][0x22][0x21][0xfc][0xfe]flag.txt". This way the condition was met and we changed the variable `meme_file` to "flag.txt", just like in the first challenge. Doing this we found the flag - `flag{031964c904407b7f31a925abe31d5d1f}`.
 
 # SEED Labs
 
