@@ -20,13 +20,15 @@
 
 - As the password input is empty the condition or '' = ' is actualy '' = '', which is always true.
 
-
+![Alice Table](images/alice_table.png "Alice Table")
 
 - We wanted to log in as the Admin user, so we created a similar code to input as the username, but in this case with the admin keyword in the beginning to evaluate the user as admin `admin' or ''='`.
 
+![Admin Table](images/admin_table.png "Admin Table")
+
 ### Task 2.2: SQL Injection Attack from command line
 
--
+- This task was similiar to the previous one, but with the code to inject in the ASCII enconding that is correctly converted by the HTTP encoding while sending the request using curl command. With this in mind we formulated the following command to issue
 
 ### Task 2.3: Append a new SQL statement.
 
