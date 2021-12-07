@@ -10,4 +10,5 @@
 
 - Finaly, we printed the private information of employee Alice using the following SQL statement `SELECT * from credential where Name="Alice";`. This step is shown in the following print screen:
 
+![Task 1](images/unknown.png "Task 1: selected Alice information from database")
 
