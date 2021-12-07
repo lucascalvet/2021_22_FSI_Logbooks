@@ -12,3 +12,39 @@
 
 ![Task 1](images/unknown.png "Task 1: selected Alice information from database")
 
+## Task 2: SQL Injection Attack on SELECT Statement
+
+### Task 2.1: SQL Injection Attack from webpage
+
+- After observing the PHP code in unsafe_home.php, we conclude that the injection had to be done in the username input of login section, because the password inputted was protected with sha1 encryption. We formulated the following code `' = '' or ''=' `, that in conjunction with the verification SQL query in the web application code (unsafe_home.php), created a valid SQL statement that evaluated the WHERE condition to true, that gaves us the ability to log in, as an undefined user, retrieving only Alices emplyee information.
+
+- As the password input is empty the condition or '' = ' is actualy '' = '', which is always true.
+
+
+
+- We wanted to log in as the Admin user, so we created a similar code to input as the username, but in this case with the admin keyword in the beginning to evaluate the user as admin `admin' or ''='`.
+
+### Task 2.2: SQL Injection Attack from command line
+
+-
+
+### Task 2.3: Append a new SQL statement.
+
+-
+
+## Task 3: SQL Injection Attack on UPDATE Statement
+
+### Task 3.1: Modify your own salary
+
+-
+
+### Task 3.2: Modify other people’ salary
+
+-
+
+### Task 3.3: Modify other people’ password
+
+-
+
+##  Task 4: Countermeasure — Prepared Statement
+
