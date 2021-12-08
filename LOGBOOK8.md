@@ -42,17 +42,21 @@
 
 ### Task 3.1: Modify your own salary
 
-- In order to modify our own salary (Alices salary in this case, as we logged into her account), we had to close one of the inputs we had available with `'` to close this input, followed by a colon and salary (column keyword) with the value we wanted.
+- In order to modify our own salary (Alices salary in this case, as we logged into her account), we had to close one of the inputs we had available with `'` to close this email input, followed by a colon and salary (column keyword) with the value we wanted.
 
 - The final statement injected was this: `alice@example.com',salary='999999`.
 
 - We obtain this results:
 
-![Alice Salary](images/alice_salary.png "Alice Salary")
+![Alice's Salary](images/alice_salary.png "Alice's Salary")
 
 ### Task 3.2: Modify other people’ salary
 
--
+- In order to modify other people salary we did the following input, `',salary=1 where Name='Boby';#`, in the email tab as in the previous attack. This way we alter Boby's salary, by using his name in the where SQL condition. In the end of the statement it is needed the `#`in order to comment the rest of the original sql statement in the server.
+
+- We obtain this results:
+
+![Boby's Salary](images/boby_salary.png "Boby's Salary")
 
 ### Task 3.3: Modify other people’ password
 
