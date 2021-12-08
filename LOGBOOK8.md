@@ -1,6 +1,24 @@
 # CTF
 
+## Challenge 1
 
+### Recon
+
+- 
+
+### Vulnerability
+
+-
+
+## Challenge 2
+
+### Recon
+
+- 
+
+### Vulnerability
+
+-
 
 # SEEDS Labs
 
