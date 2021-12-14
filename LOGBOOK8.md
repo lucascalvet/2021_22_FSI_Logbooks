@@ -4,11 +4,23 @@
 
 ### Recon
 
-- 
+- We start by analysing the php code of the site we were trying to log in and trying out some SQL injection strings on the inputs.
 
 ### Vulnerability
 
--
+- After analysing the php code of the authentication web site, we conclude that it was possible to that advantage of the authentication query: `"SELECT username FROM user WHERE username = '".$username."' AND password = '".$password."'";`. This verification query is unsafe, because someone can override the query, by making some especific input in the username and/or password.
+
+- Finaly, we conclude that there were many ways to do an SQL injection attack on this website, and it is even necessary to input the admin username to entry with admin priviliges, because if we make an always true SQL statement, we enter as the first user, which in this case is the admin.
+
+- So both this attacks area valid attacks and return the same priviliges:
+
+- Attack 1
+- username: `admin`
+- password: `'or''='`
+
+- Attack 2
+- username: `'or''='';`
+- password: `anything`
 
 ## Challenge 2
 
