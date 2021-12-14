@@ -26,11 +26,15 @@
 
 ### Recon
 
-- 
+- When we first start analysing the webpage, we found this section suspicious `Check out your network status! Here`. So we clicked and observed what this was for. It seemed to be an internet connection tester. However, after entering an website (www.google.com) to experiment, we quickly understood, that the results shown were directly from a linux command.
 
 ### Vulnerability
 
--
+- The Vulnerability could be found in the input for the network connection checker, were we could issue whatever linux command we want, and observe its results, if we input a semicolon before, following this structure `;[linux command]`.
+
+- In order to see what was inside the linux system we start issuing multiple `ls` commands, by inserting `!ls` in the input. After this command `;ls ../../../..`, we found the flag.txt file.
+
+- After knowing the flag location, we just had to issue a command to print it out `;cat ../../../../flag.txt`.
 
 # SEEDS Labs
 
