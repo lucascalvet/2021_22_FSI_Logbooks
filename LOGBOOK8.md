@@ -15,12 +15,12 @@
 - So both this attacks area valid attacks and return the same priviliges:
 
 - Attack 1
-- username: `admin`
-- password: `'or''='`
+    - username: `admin`
+    - password: `'or''='`
 
 - Attack 2
-- username: `'or''='';`
-- password: `anything`
+    - username: `'or''='';`
+    - password: `anything`
 
 ## Challenge 2
 
