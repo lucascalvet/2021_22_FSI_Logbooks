@@ -91,10 +91,3 @@
 - We obtain this results:
 
 ![Boby's Salary](images/boby_salary.png "Boby's Salary")
-
-### Task 3.3: Modify other people’ password
-
--
-
-##  Task 4: Countermeasure — Prepared Statement
-
