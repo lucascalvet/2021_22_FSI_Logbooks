@@ -1,3 +1,21 @@
+# CTF
+
+## Challenge 1
+
+### Recon
+
+- We started by sending a random request just to see what would happen. 
+- It was rejected after a while, but we noticed that our input would go in the HTML of the page, without any protection.
+- After we send the request two disabled buttons are revealed, including the one that sends the flag, the one we want the admin to click. 
+
+### Vulnerability
+
+We realized that, if our input goes in the HTML code without any protection, we are able to inject code. Using script tags (`<script>`), we are able to inject JavaScript in the page.
+
+After inspecting the button that gives the flag, we got its id: `giveflag`. We need the admin to click on said button, there is no use in pressing it ourselves, as we don't have the necessary permissions. Our goal was to send a request that, when received by the admin, would click the button instantly. For that, we used JavaScript's `click()` method. 
+
+So, after sending the input `<script> document.getElementById("giveflag").click() </script>` and wanting the 2 minutes, we got the flag - `flag{aee2a3da1e8e9588d6f60b6c02bdf0e5}`
+
 # SEED Labs
 
 ## Cross-Site Scripting (XSS) Attack Lab
