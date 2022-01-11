@@ -391,3 +391,10 @@ Certificate:
          77:ad:36:95:13:43:d5:b8:aa:bf:73:e8:8b:d3:c9:3e:0f:42:
          38:04:1e:a7:24:6d:6c:34
 ```
+
+## 3.4 Task 4: Deploying Certificate in an Apache-Based HTTPS Website
+
+## 3.5 Task 5: Launching a Man-In-The-Middle Attack
+
+## 3.6 Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA
+
