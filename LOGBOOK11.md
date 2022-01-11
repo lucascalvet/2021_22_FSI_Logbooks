@@ -281,3 +281,113 @@ coefficient:
     b9:16:46:f4:3c:68:77:69:dc:2f:71:98:57:86:6a:
     a7:f3:ed:d1:0a:aa:68:b6
 ```
+## Task 3: Generating a Certificate for your server
+
+- This following command converted a CSR into a X509 certificate.
+```
+openssl ca -config openssl.cnf -policy policy_anything -md sha256 -days 3650 -in server.csr -out server.crt -batch -cert ca.crt -keyfile ca.key
+Using configuration from openssl.cnf
+Enter pass phrase for ca.key:
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number: 4096 (0x1000)
+        Validity
+            Not Before: Jan 11 12:19:57 2022 GMT
+            Not After : Jan  9 12:19:57 2032 GMT
+        Subject:
+            countryName               = US
+            organizationName          = Bank32 Inc.
+            commonName                = www.bank32.com
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                9C:48:48:1C:02:11:EE:EE:BA:F5:F6:52:91:29:77:91:99:A2:08:4B
+            X509v3 Authority Key Identifier: 
+                keyid:43:3E:1B:10:89:A2:A8:62:32:27:75:32:2F:A8:EE:97:7B:CB:F8:25
+
+Certificate is to be certified until Jan  9 12:19:57 2032 GMT (3650 days)
+
+Write out database with 1 new entries
+Data Base Updated
+```
+- Finally, we issued this command to print out the decoded content of the certificate.
+```
+openssl x509 -in server.crt -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 4096 (0x1000)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C = PT, ST = Porto, L = Porto, O = FEUP, OU = FSI, CN = Z\C3\83\C2\A9, emailAddress = user@example.com
+        Validity
+            Not Before: Jan 11 12:19:57 2022 GMT
+            Not After : Jan  9 12:19:57 2032 GMT
+        Subject: C = US, O = Bank32 Inc., CN = www.bank32.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:e2:65:93:43:92:d8:5c:5f:52:f0:75:e9:58:df:
+                    33:a8:91:84:35:fe:f8:1f:c8:8d:a4:23:e8:a2:cc:
+                    8d:9c:9b:4e:cf:f7:d7:cd:36:af:22:94:e7:0f:c0:
+                    f5:dc:e6:4e:17:89:fa:ba:e7:ac:49:5c:7d:bc:d2:
+                    cf:37:c2:f5:82:11:27:76:bf:18:0e:19:42:50:53:
+                    40:14:e3:53:9d:03:f4:a7:4c:62:fd:47:24:77:59:
+                    c0:c1:99:bf:2a:ff:ff:7d:bc:8d:30:4c:b0:5f:20:
+                    35:9a:6b:2e:d3:38:ee:a7:2b:32:30:af:38:c9:c0:
+                    7e:4f:35:c3:e2:88:91:55:4d:e0:9d:c5:83:22:27:
+                    0a:e9:1d:33:c3:91:dc:85:7f:09:47:b7:e0:8c:7e:
+                    f5:58:1b:ae:5c:c5:25:6d:29:8a:3a:66:ef:da:45:
+                    a2:02:d1:1c:60:dc:29:fa:90:1e:7d:18:ca:c2:55:
+                    c5:9d:19:0d:1a:34:88:aa:d3:3d:1c:b3:20:3b:de:
+                    5d:76:80:32:e1:cf:09:21:2f:a4:16:45:3f:06:31:
+                    61:1d:e2:32:50:da:85:13:3b:b4:fa:74:6e:14:77:
+                    8d:78:f7:de:7f:2c:1a:58:7f:66:a2:51:b7:49:d7:
+                    42:3b:37:bc:6b:7c:f3:b5:ab:b4:4f:c1:16:ea:e3:
+                    45:5f
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                9C:48:48:1C:02:11:EE:EE:BA:F5:F6:52:91:29:77:91:99:A2:08:4B
+            X509v3 Authority Key Identifier: 
+                keyid:43:3E:1B:10:89:A2:A8:62:32:27:75:32:2F:A8:EE:97:7B:CB:F8:25
+
+    Signature Algorithm: sha256WithRSAEncryption
+         5d:03:2b:ed:90:ee:df:fc:8c:82:e9:e5:38:17:67:dc:ec:e0:
+         63:db:64:75:b6:b4:6f:2a:e8:68:cb:b2:ea:5d:13:af:5f:cf:
+         42:50:e2:de:49:e2:f9:75:1a:d7:5c:36:9f:fa:b3:39:06:15:
+         56:71:08:02:b6:87:dd:67:19:3a:c7:06:16:fd:65:06:f6:9d:
+         cc:63:83:d6:03:b1:ca:17:de:ab:e5:1e:47:25:65:79:7c:48:
+         ff:ca:bb:e7:a6:65:2a:56:33:cf:ee:65:94:bb:e9:8e:d9:d8:
+         b5:8f:a8:00:d4:c5:a7:3b:ef:d1:89:cc:8f:e7:3c:7a:02:ce:
+         e4:9a:fd:b8:6d:38:c4:f9:82:2b:5b:ed:df:ee:79:9f:01:b1:
+         12:c7:d7:44:49:2e:e3:3b:5b:04:4e:74:23:3c:e9:55:52:86:
+         94:38:5d:56:80:4e:a3:2b:98:d0:8d:e7:73:09:82:bb:65:58:
+         7b:3a:87:b8:ea:60:0b:9e:f4:e3:37:0b:59:d3:88:a3:e9:7d:
+         f2:9a:5e:b5:16:df:db:ab:09:07:5b:2e:1a:da:6e:55:2c:cd:
+         c9:2d:93:67:ae:78:4f:19:f0:50:7f:cb:fa:79:c8:e5:02:58:
+         31:6a:73:17:49:d4:e7:73:d3:6e:1b:b8:30:8e:11:12:95:2c:
+         2a:c1:e3:a9:fa:b7:6b:88:40:2a:19:e1:99:fb:b7:e2:a5:36:
+         99:cd:8f:cd:25:ca:e7:56:73:58:9e:d0:0b:9e:96:f5:41:a8:
+         95:c3:ea:bf:6b:9a:5f:37:f2:61:a2:ed:1c:0a:98:46:b1:c8:
+         68:04:cd:20:7d:fa:7b:91:f0:99:4b:cc:fc:bd:30:f0:50:8f:
+         39:60:83:d9:78:77:32:62:d8:73:ec:3a:c2:d1:ac:91:d7:39:
+         a2:35:6a:60:d8:63:1f:46:09:c2:46:16:c6:c0:6c:2a:0f:dc:
+         ff:66:9f:bb:bf:64:1e:1e:c7:10:b3:62:7e:80:fa:30:78:3a:
+         93:ee:37:51:be:be:3e:90:a5:22:33:d2:4c:42:df:f9:ec:02:
+         d5:05:06:91:74:b5:3f:9b:99:2c:0a:18:81:3c:9d:cf:d9:e8:
+         23:d1:12:db:2f:44:9f:34:04:55:90:5e:5f:2d:99:ca:b5:a2:
+         fd:b2:bc:de:87:15:e1:f4:7a:77:8d:18:9a:d0:ab:57:56:05:
+         f8:3f:94:8a:87:13:08:43:40:5a:5f:a7:cf:ae:d8:8d:d7:31:
+         67:72:8e:3c:52:5b:65:d6:75:d2:ee:c4:15:84:86:c1:5f:47:
+         77:ad:36:95:13:43:d5:b8:aa:bf:73:e8:8b:d3:c9:3e:0f:42:
+         38:04:1e:a7:24:6d:6c:34
+```
