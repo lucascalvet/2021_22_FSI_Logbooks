@@ -8,19 +8,19 @@
 
 - If the CA flag is true then it is a CA, otherwise then it is not a CA.
 
-
+![Task 1](images/ca.png "Task 1: CA’s certificates")
 
 - What part of the certificate indicates this is a self-signed certificate?
 
 - We observed that boths the Subject key and the Authority identifier are the same, therefore it is a self-signed certificate.
 
-
+![Task 1](images/ca.png "Task 1: Subject key and the Authority identifiers")
 
 - In the RSA algorithm, we have a public exponent e, a private exponent d, a modulus n, and two secret
 numbers p and q, such that n = pq. Please identify the values for these elements in your certificate
 and key files.
 
-- modulus (n):
+- **modulus (n)**:
     00:b0:ad:7e:24:7d:75:43:1e:6a:9d:41:a9:de:54:
     08:6b:ea:d8:0e:25:70:14:6a:d7:d1:ff:8c:f8:d0:
     ad:e1:d2:56:08:aa:b2:2a:78:e9:43:a1:f6:4d:18:
@@ -56,8 +56,8 @@ and key files.
     d3:dd:4c:62:3f:9e:a2:23:ad:0c:e9:0f:f8:24:e2:
     cb:d8:63:d7:5f:61:5d:b6:6f:a8:7d:d9:ec:c7:0d:
     40:6e:9d
-- publicExponent (e): 65537 (0x10001)
-- privateExponent (d):
+- **publicExponent (e):** 65537 (0x10001)
+- **privateExponent (d):**
     00:9b:94:7b:83:48:93:2d:42:a8:a1:c8:43:fc:cb:
     45:0b:3b:27:7c:f5:8c:c7:fd:fa:05:2b:a3:89:2b:
     c2:23:1c:a4:b4:47:14:53:80:5b:f1:39:bb:79:d2:
@@ -93,7 +93,7 @@ and key files.
     1f:a0:77:8f:22:66:e2:d6:4f:6f:c2:49:7f:f9:6f:
     b1:84:e8:44:ae:11:f7:76:5b:f3:08:e5:bd:54:87:
     0e:8c:81
-- p:
+- **p:**
     00:e2:b0:d7:ff:e6:ce:75:f1:e4:af:04:d6:db:29:
     f7:f2:d6:ff:d9:40:6e:ac:34:28:82:a1:26:10:e3:
     81:02:27:ca:ae:d9:1a:87:2d:28:cc:9d:83:bd:91:
@@ -112,7 +112,7 @@ and key files.
     42:f1:c2:ee:ca:0c:c3:42:6b:31:03:f0:9b:39:77:
     5b:00:27:b5:8a:42:01:c2:1e:cc:e5:3e:47:7b:f1:
     61:fd
-- q:
+- **q:**
     00:c7:85:48:ae:99:bf:48:99:f4:56:f0:0f:a2:0a:
     7e:97:4b:10:74:00:9d:ce:16:c1:db:94:7a:ff:98:
     3e:7f:03:ac:67:85:76:f6:c9:5d:b3:1c:cb:c1:f7:
