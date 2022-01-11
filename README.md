@@ -1,5 +1,4 @@
-Breve descrição do grupo
-
+FSI
 * Turno: L09
 * Grupo: 04
 * Alunos:
