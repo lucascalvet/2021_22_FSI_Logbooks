@@ -134,5 +134,150 @@ and key files.
 
 ###  Task 2: Generating a Certificate Request for Your Web Server
 
+- We issued two commands and the first was the following, which generated a Certificate Signing Request (CSR).
 
-
+```
+openssl req -in server.csr -text -noout -addext "subjectAltName = DNS:www.bank32.com, \
+> DNS:www.bank32A.com, \
+> DNS:www.bank32B.com"
+Certificate Request:
+    Data:
+        Version: 1 (0x0)
+        Subject: CN = www.bank32.com, O = Bank32 Inc., C = US
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:e2:65:93:43:92:d8:5c:5f:52:f0:75:e9:58:df:
+                    33:a8:91:84:35:fe:f8:1f:c8:8d:a4:23:e8:a2:cc:
+                    8d:9c:9b:4e:cf:f7:d7:cd:36:af:22:94:e7:0f:c0:
+                    f5:dc:e6:4e:17:89:fa:ba:e7:ac:49:5c:7d:bc:d2:
+                    cf:37:c2:f5:82:11:27:76:bf:18:0e:19:42:50:53:
+                    40:14:e3:53:9d:03:f4:a7:4c:62:fd:47:24:77:59:
+                    c0:c1:99:bf:2a:ff:ff:7d:bc:8d:30:4c:b0:5f:20:
+                    35:9a:6b:2e:d3:38:ee:a7:2b:32:30:af:38:c9:c0:
+                    7e:4f:35:c3:e2:88:91:55:4d:e0:9d:c5:83:22:27:
+                    0a:e9:1d:33:c3:91:dc:85:7f:09:47:b7:e0:8c:7e:
+                    f5:58:1b:ae:5c:c5:25:6d:29:8a:3a:66:ef:da:45:
+                    a2:02:d1:1c:60:dc:29:fa:90:1e:7d:18:ca:c2:55:
+                    c5:9d:19:0d:1a:34:88:aa:d3:3d:1c:b3:20:3b:de:
+                    5d:76:80:32:e1:cf:09:21:2f:a4:16:45:3f:06:31:
+                    61:1d:e2:32:50:da:85:13:3b:b4:fa:74:6e:14:77:
+                    8d:78:f7:de:7f:2c:1a:58:7f:66:a2:51:b7:49:d7:
+                    42:3b:37:bc:6b:7c:f3:b5:ab:b4:4f:c1:16:ea:e3:
+                    45:5f
+                Exponent: 65537 (0x10001)
+        Attributes:
+            a0:00
+    Signature Algorithm: sha256WithRSAEncryption
+         db:7c:9b:fd:45:d5:a9:32:5c:38:fa:52:98:c2:d6:af:70:2f:
+         e3:e3:18:2c:dd:4b:19:8a:e5:73:9d:ba:b2:e6:85:06:b6:24:
+         49:58:0c:f0:d3:15:87:34:2e:45:3e:d3:cc:e4:78:a6:a8:e4:
+         d8:12:36:7f:48:99:c4:0b:ea:af:d0:b4:e3:e2:8f:85:f7:b9:
+         d4:67:e5:50:0b:34:77:66:5d:4f:a9:fe:bc:aa:34:2a:7f:7b:
+         06:c8:7e:72:f9:10:ab:d2:94:32:4d:71:28:1f:ea:ef:ea:b1:
+         fd:20:f9:7d:c6:72:20:44:69:e4:15:18:4d:a9:45:d9:dc:10:
+         d4:b9:a0:3a:7f:ee:b0:8f:2c:87:e0:19:64:18:13:e6:ce:28:
+         52:eb:16:ac:48:52:3a:75:2f:61:1c:08:35:4f:4d:f9:10:63:
+         28:25:42:f1:03:7b:22:60:6a:22:45:8a:d0:0f:4b:21:bb:ad:
+         36:f7:45:79:91:54:66:d8:9c:22:75:4b:cf:b2:54:df:0c:86:
+         81:e6:60:39:41:c9:b2:74:b2:78:6d:49:c1:64:c7:0d:aa:75:
+         1e:b3:47:99:0a:59:0c:f2:e9:9d:df:aa:84:d2:05:69:71:48:
+         23:50:c1:8c:3e:9e:2a:e3:24:71:56:26:87:7f:96:89:80:5f:
+         28:c6:cd:da
+```
+- The second command was the following, that generated a pair of public/private key.
+```
+openssl rsa -in server.key -text -noout
+Enter pass phrase for server.key:
+RSA Private-Key: (2048 bit, 2 primes)
+modulus:
+    00:e2:65:93:43:92:d8:5c:5f:52:f0:75:e9:58:df:
+    33:a8:91:84:35:fe:f8:1f:c8:8d:a4:23:e8:a2:cc:
+    8d:9c:9b:4e:cf:f7:d7:cd:36:af:22:94:e7:0f:c0:
+    f5:dc:e6:4e:17:89:fa:ba:e7:ac:49:5c:7d:bc:d2:
+    cf:37:c2:f5:82:11:27:76:bf:18:0e:19:42:50:53:
+    40:14:e3:53:9d:03:f4:a7:4c:62:fd:47:24:77:59:
+    c0:c1:99:bf:2a:ff:ff:7d:bc:8d:30:4c:b0:5f:20:
+    35:9a:6b:2e:d3:38:ee:a7:2b:32:30:af:38:c9:c0:
+    7e:4f:35:c3:e2:88:91:55:4d:e0:9d:c5:83:22:27:
+    0a:e9:1d:33:c3:91:dc:85:7f:09:47:b7:e0:8c:7e:
+    f5:58:1b:ae:5c:c5:25:6d:29:8a:3a:66:ef:da:45:
+    a2:02:d1:1c:60:dc:29:fa:90:1e:7d:18:ca:c2:55:
+    c5:9d:19:0d:1a:34:88:aa:d3:3d:1c:b3:20:3b:de:
+    5d:76:80:32:e1:cf:09:21:2f:a4:16:45:3f:06:31:
+    61:1d:e2:32:50:da:85:13:3b:b4:fa:74:6e:14:77:
+    8d:78:f7:de:7f:2c:1a:58:7f:66:a2:51:b7:49:d7:
+    42:3b:37:bc:6b:7c:f3:b5:ab:b4:4f:c1:16:ea:e3:
+    45:5f
+publicExponent: 65537 (0x10001)
+privateExponent:
+    48:55:61:ce:c6:3d:20:8e:48:46:91:b5:c3:72:54:
+    e3:f7:d2:41:1a:3c:96:93:12:46:2e:3e:e6:bc:ea:
+    45:ee:0d:29:3f:2b:90:e2:76:e4:5a:a4:d4:90:b7:
+    3d:23:cc:31:93:21:2b:d4:57:64:7d:0b:a3:67:cb:
+    53:2a:94:1c:41:74:d5:68:ca:bb:be:70:44:8f:c4:
+    ba:a7:c3:10:38:b2:53:3d:81:a7:20:b2:d2:fb:37:
+    2d:e3:fc:83:35:95:a0:cb:bc:64:81:2c:1c:c8:82:
+    b7:da:a4:f4:51:8d:56:95:e3:8c:50:7f:99:5e:4a:
+    3c:ee:95:ae:6c:29:db:11:d3:e8:d5:37:c0:5c:b3:
+    58:ae:24:2d:8b:2b:33:a8:00:16:18:e2:1c:94:67:
+    85:9b:18:d1:a6:54:9c:7b:ac:a2:ea:e4:71:8b:44:
+    fc:a9:48:63:61:ed:c9:64:7b:a1:5b:4e:1f:74:a5:
+    dd:a6:21:94:b3:fa:e9:29:e2:80:4f:4c:c8:af:d4:
+    4e:6d:c4:e9:66:47:8f:91:cf:9b:9f:21:e8:98:53:
+    1c:8f:cd:7c:46:bb:15:ca:14:6d:c0:b9:b8:69:93:
+    5a:f5:62:ac:55:36:99:b3:1a:17:99:81:0e:e4:5f:
+    6b:53:cd:d8:92:06:d7:1a:63:ce:78:5e:76:07:28:
+    29
+prime1:
+    00:f3:3a:14:28:1f:b9:d3:06:5a:f8:30:7e:85:8b:
+    6d:7a:c7:6d:b8:be:f7:d0:b2:30:0a:47:72:ab:9f:
+    1f:d4:c0:9b:a7:ef:b5:29:c5:7c:31:52:02:99:84:
+    fd:c9:f9:b2:2d:2d:3f:e9:bf:c2:2d:f9:19:0b:d3:
+    00:41:f4:90:5b:db:02:dd:80:b0:2b:de:da:88:4f:
+    35:c9:57:da:77:6b:6d:c9:20:74:6c:fe:c2:db:32:
+    68:9b:58:b4:30:c3:66:8b:5b:66:6f:3c:b4:a6:fc:
+    9c:07:96:4e:d6:88:5b:bc:4a:86:b1:bb:db:0a:1f:
+    59:67:0e:ee:25:3b:2d:fb:7b
+prime2:
+    00:ee:49:3b:f4:54:1a:5a:a6:de:af:2f:f4:88:8b:
+    0a:b9:b8:04:1f:59:59:a9:46:89:b7:c2:0c:93:9d:
+    bd:e4:e1:83:4d:56:da:7a:b5:c7:63:b8:6b:a3:6a:
+    f7:e7:43:88:76:a5:40:3e:0f:64:80:32:50:90:be:
+    c6:8d:25:1b:2f:93:74:0b:29:83:f0:de:43:36:f0:
+    be:88:23:c6:13:b0:b1:d2:19:fa:3f:30:39:4a:f9:
+    46:4a:6d:85:05:f4:a8:a6:69:fe:f5:a3:91:1a:00:
+    0f:f9:67:58:25:6c:a0:fd:f7:66:a1:db:18:f0:8d:
+    ee:80:8a:ff:37:19:c5:f6:6d
+exponent1:
+    00:83:18:0b:a3:30:ae:5c:71:f1:78:11:d3:2f:b1:
+    5d:99:ae:81:91:f0:c3:ea:e5:0f:85:8a:ca:e0:7b:
+    8c:91:84:1a:a1:62:4e:97:ac:0c:6b:1c:d3:af:e1:
+    01:54:ea:53:41:8c:41:05:80:c8:6d:34:f4:6d:ee:
+    15:16:77:75:93:3c:b1:07:a8:03:cc:31:7a:41:bb:
+    c7:b6:b4:b6:58:65:3b:b0:0a:e1:15:9a:1e:76:3c:
+    6e:2b:44:9d:22:27:3f:4e:df:3d:8f:b8:fd:79:7f:
+    6f:ad:9b:32:f4:e8:5b:e1:59:9d:cd:8f:fd:d8:2f:
+    db:64:f3:a4:21:c7:0a:da:9f
+exponent2:
+    00:bb:d6:83:2a:91:79:cc:e8:2a:36:93:69:02:92:
+    08:bc:6a:30:e5:bd:7b:8e:93:0a:51:0e:e8:f7:1c:
+    ab:ea:d7:52:b8:0e:b5:5f:72:18:61:a5:a9:44:43:
+    38:74:d7:a9:a5:4d:93:1c:d8:e9:72:9d:37:21:43:
+    22:25:75:90:be:aa:50:19:d4:7a:2b:d0:29:d0:0f:
+    6b:42:ca:60:84:79:0f:53:fe:22:64:d9:50:f0:a7:
+    1c:1f:e3:c1:ae:f6:34:54:2a:ce:4f:38:c7:53:65:
+    a5:32:07:a3:56:ad:11:23:e2:78:c7:32:7d:b0:73:
+    52:05:86:8c:b5:14:de:16:e9
+coefficient:
+    6a:cc:d1:5e:4c:ce:db:b1:6f:fa:6a:80:09:3c:d7:
+    6a:54:76:6b:89:70:d4:66:35:59:eb:18:9e:f1:e7:
+    ab:0d:a0:e0:42:0e:2c:a6:03:dd:94:be:46:df:04:
+    3b:c3:53:d7:b4:cd:74:e9:35:1e:df:76:1c:31:32:
+    85:b2:79:7a:f2:ce:b9:48:60:ac:75:0a:ee:26:c3:
+    2e:11:54:be:f4:f0:ce:97:a7:ca:09:a6:13:39:74:
+    30:e4:12:2d:4b:e7:50:9e:b3:be:05:69:90:fb:55:
+    b9:16:46:f4:3c:68:77:69:dc:2f:71:98:57:86:6a:
+    a7:f3:ed:d1:0a:aa:68:b6
+```
