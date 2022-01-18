@@ -398,7 +398,7 @@ Certificate:
 
 ![Task 4](images/apache_configs.png "Task 4: Apache Server Configurations")
 
-- After starting the Apache Server we accessed our website (www.ze.com), or his alias, but we conclude that the browser wasn't recognizing the site as a safe one. In order to the browser recognize our site we had to add our Certificate Authority certificate to the trusted Authorities of firefox.
+- After starting the Apache Server we accessed our website (www.ze.com), or his alias (www.zp.com, www.luke.com, www.gama.com), but we conclude that the browser wasn't recognizing those endpoints as a safe ones. In order to the browser recognize our site and his alias we had to add our Certificate Authority certificate to the trusted Authorities of firefox.
 
 - In the end, after configurating firefox with our CA, we were able to visit our website correctly.
 
@@ -406,10 +406,20 @@ Certificate:
 
 ## 3.5 Task 5: Launching a Man-In-The-Middle Attack
 
-- There are many ways to make a man in the middle attack, being one of them DNS cache poisoning. However, in this lab we only had to change te etc/hosts file in order to simulate on of this attacks, by redirecting all the requests for the website we choose (www.expresso.com) to a server of our own.
+- There are many ways to make a man in the middle attack, being one of them DNS cache poisoning. However, in this lab we only had to change the etc/hosts file in order to simulate one of this attacks, by redirecting all the requests for the website we choose (www.expresso.com) to a server of our own.
 
 ![Task 5](images/expresso_5.png "Task 5: Redirecting Expressso Site")
 
 
 ## 3.6 Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA
+
+- This time we had to actually do a MITM attack. With that purpose we used the previously configurated redirection of www.expresso.com, to our server. However, now the server was prepared to accept requests, wich should present a credible webapage. For demonstration purposes, we hosted the same page (index.html), that was already done.
+
+- Here are the configurations done to our server.
+
+![Task 6](images/conf_6.png "Task 6: Server Expressso Configs")
+
+- The website correctly redirected.
+
+![Task 6](images/expresso_6.png "Task 6: New Expressso Site")
 
