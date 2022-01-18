@@ -137,13 +137,13 @@ and key files.
 - We issued two commands and the first was the following, which generated a Certificate Signing Request (CSR).
 
 ```
-openssl req -in server.csr -text -noout -addext "subjectAltName = DNS:www.bank32.com, \
-> DNS:www.bank32A.com, \
-> DNS:www.bank32B.com"
+openssl req -in server.csr -text -noout -addext "subjectAltName = DNS:www.zep.com, \
+> DNS:www.gama.com, \
+> DNS:www.luke.com"
 Certificate Request:
     Data:
         Version: 1 (0x0)
-        Subject: CN = www.bank32.com, O = Bank32 Inc., C = US
+        Subject: CN = www.ze.com, O = Ze Inc., C = PT
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 RSA Public-Key: (2048 bit)
