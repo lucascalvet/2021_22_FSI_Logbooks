@@ -394,6 +394,16 @@ Certificate:
 
 ## 3.4 Task 4: Deploying Certificate in an Apache-Based HTTPS Website
 
+- Firstly, we had to cofigurate the Apache Server in order to correctly access to our site. Those configurations are demonstrated in the following image.
+
+![Task 4](images/apache_configs.png "Task 4: Apache Server Configurations")
+
+- After starting the Apache Server we accessed our website (www.ze.com), or his alias, but we conclude that the browser wasn't recognizing the site as a safe one. In order to the browser recognize our site we had to add our Certificate Authority certificate to the trusted Authorities of firefox.
+
+- In the end, after configurating firefox with our CA, we were able to visit our website correctly.
+
+![Task 4](images/ze.png "Task 4: Apache Server Configurations")
+
 ## 3.5 Task 5: Launching a Man-In-The-Middle Attack
 
 ## 3.6 Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA
