@@ -406,5 +406,10 @@ Certificate:
 
 ## 3.5 Task 5: Launching a Man-In-The-Middle Attack
 
+- There are many ways to make a man in the middle attack, being one of them DNS cache poisoning. However, in this lab we only had to change te etc/hosts file in order to simulate on of this attacks, by redirecting all the requests for the website we choose (www.expresso.com) to a server of our own.
+
+![Task 5](images/expresso_5.png "Task 5: Redirecting Expressso Site")
+
+
 ## 3.6 Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA
 
