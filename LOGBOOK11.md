@@ -6,13 +6,13 @@
 
 - What part of the certificate indicates this is a CA’s certificate?
 
-- If the CA flag is true then it is a CA, otherwise then it is not a CA.
+- If the CA flag is true, then it is a CA, otherwise it is not a CA.
 
 ![Task 1](images/ca.png "Task 1: CA’s certificates")
 
 - What part of the certificate indicates this is a self-signed certificate?
 
-- We observed that boths the Subject key and the Authority identifier are the same, therefore it is a self-signed certificate.
+- We observed that both the Subject key and the Authority identifier are the same, therefore it is a self-signed certificate.
 
 ![Task 1](images/ca.png "Task 1: Subject key and the Authority identifiers")
 
@@ -394,32 +394,32 @@ Certificate:
 
 ## 3.4 Task 4: Deploying Certificate in an Apache-Based HTTPS Website
 
-- Firstly, we had to cofigurate the Apache Server in order to correctly access to our site. Those configurations are demonstrated in the following image.
+- Firstly, we had to configure the Apache Server in order to correctly access to our site. Those configurations are demonstrated in the following image.
 
 ![Task 4](images/apache_configs.png "Task 4: Apache Server Configurations")
 
-- After starting the Apache Server we accessed our website (www.ze.com), or his alias (www.zp.com, www.luke.com, www.gama.com), but we conclude that the browser wasn't recognizing those endpoints as a safe ones. In order to the browser recognize our site and his alias we had to add our Certificate Authority certificate to the trusted Authorities of firefox.
+- After starting the Apache Server we accessed our website (www.ze.com), or his alias (www.zp.com, www.luke.com, www.gama.com), but we conclude that the browser wasn't recognizing those endpoints as safe ones. In order for the browser to recognize our site and its alias, we had to add our Certificate Authority certificate to the trusted Authorities of Firefox.
 
-- In the end, after configurating firefox with our CA, we were able to visit our website correctly.
+- In the end, after configuring Firefox with our CA, we were able to visit our website correctly.
 
 ![Task 4](images/ze.png "Task 4: Apache Server Configurations")
 
 ## 3.5 Task 5: Launching a Man-In-The-Middle Attack
 
-- There are many ways to make a man in the middle attack, being one of them DNS cache poisoning. However, in this lab we only had to change the etc/hosts file in order to simulate one of this attacks, by redirecting all the requests for the website we choose (www.expresso.com) to a server of our own.
+- There are many ways to make a man in the middle attack, one of them being DNS cache poisoning. However, in this lab we only had to change the etc/hosts file in order to simulate one of these attacks, by redirecting all the requests for the website we choose (www.expresso.com) to a server of our own.
 
-![Task 5](images/expresso_5.png "Task 5: Redirecting Expressso Site")
+![Task 5](images/expresso_5.png "Task 5: Redirecting Expresso Site")
 
 
 ## 3.6 Task 6: Launching a Man-In-The-Middle Attack with a Compromised CA
 
-- This time we had to actually do a MITM attack. With that purpose we used the previously configurated redirection of www.expresso.com, to our server. However, now the server was prepared to accept requests, wich should present a credible webapage. For demonstration purposes, we hosted the same page (index.html), that was already done.
+- This time we had to actually do a MITM attack. With that purpose, we used the previously configured redirection of www.expresso.com, to our server. However, now the server was prepared to accept requests, which should present a credible webpage. For demonstration purposes, we hosted the same page (index.html), that was already done.
 
 - Here are the configurations done to our server.
 
-![Task 6](images/conf_6.png "Task 6: Server Expressso Configs")
+![Task 6](images/conf_6.png "Task 6: Server Expresso Configs")
 
 - The website correctly redirected.
 
-![Task 6](images/expresso_6.png "Task 6: New Expressso Site")
+![Task 6](images/expresso_6.png "Task 6: New Expresso Site")
 
